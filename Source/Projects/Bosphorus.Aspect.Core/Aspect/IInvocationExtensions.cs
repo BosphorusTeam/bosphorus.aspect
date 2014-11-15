@@ -23,7 +23,7 @@ namespace Bosphorus.Aspect.Core.Aspect
             return inputValues;
         }
 
-        public static IDictionary<string, object> GetOutput(this IInvocation extended)
+        public static object GetOutput(this IInvocation extended)
         {
             ParameterInfo returnParameter = extended.Method.ReturnParameter;
             if (returnParameter.ParameterType == typeof(void))
@@ -31,9 +31,7 @@ namespace Bosphorus.Aspect.Core.Aspect
                 return null;
             }
 
-            IDictionary<string, object> result = new Dictionary<string, object>();
-            result.Add("return", extended.ReturnValue);
-            return result;
+            return extended.ReturnValue;
         }
     }
 }
