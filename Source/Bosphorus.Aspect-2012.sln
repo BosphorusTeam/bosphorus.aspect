@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Projects", "Projects", "{95D437A3-4B19-4EEA-8C78-AC4FBF9A715D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Aspect.Core", "Projects\Bosphorus.Aspect.Core\Bosphorus.Aspect.Core.csproj", "{659EA150-7A4F-4065-8DCD-49FD3DC36041}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Aspect.Exception", "Projects\Bosphorus.Aspect.Exception\Bosphorus.Aspect.Exception.csproj", "{87ADF75B-6A73-430B-9D35-5C6C92A1CCDE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Demos", "Demos", "{729B1272-E868-4231-B340-C35E6F3A8AAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Aspect.Core.Demo", "Demos\Bosphorus.Aspect.Core.Demo\Bosphorus.Aspect.Core.Demo.csproj", "{79D7E2A2-D858-46E0-A3D4-05C07ECFE283}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Aspect.Log", "Projects\Bosphorus.Aspect.Log\Bosphorus.Aspect.Log.csproj", "{2D71D3B2-3A1F-47DE-9D59-667DAB21B408}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Bosphorus.Aspect.Default", "Projects\Bosphorus.Aspect.Default\Bosphorus.Aspect.Default.csproj", "{2F0CC9C9-55C6-481C-9EC6-D35C07830BC7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{659EA150-7A4F-4065-8DCD-49FD3DC36041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{659EA150-7A4F-4065-8DCD-49FD3DC36041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{659EA150-7A4F-4065-8DCD-49FD3DC36041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{659EA150-7A4F-4065-8DCD-49FD3DC36041}.Release|Any CPU.Build.0 = Release|Any CPU
+		{87ADF75B-6A73-430B-9D35-5C6C92A1CCDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87ADF75B-6A73-430B-9D35-5C6C92A1CCDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87ADF75B-6A73-430B-9D35-5C6C92A1CCDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87ADF75B-6A73-430B-9D35-5C6C92A1CCDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79D7E2A2-D858-46E0-A3D4-05C07ECFE283}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79D7E2A2-D858-46E0-A3D4-05C07ECFE283}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79D7E2A2-D858-46E0-A3D4-05C07ECFE283}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79D7E2A2-D858-46E0-A3D4-05C07ECFE283}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2D71D3B2-3A1F-47DE-9D59-667DAB21B408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D71D3B2-3A1F-47DE-9D59-667DAB21B408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D71D3B2-3A1F-47DE-9D59-667DAB21B408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D71D3B2-3A1F-47DE-9D59-667DAB21B408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0CC9C9-55C6-481C-9EC6-D35C07830BC7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0CC9C9-55C6-481C-9EC6-D35C07830BC7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0CC9C9-55C6-481C-9EC6-D35C07830BC7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0CC9C9-55C6-481C-9EC6-D35C07830BC7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{659EA150-7A4F-4065-8DCD-49FD3DC36041} = {95D437A3-4B19-4EEA-8C78-AC4FBF9A715D}
+		{87ADF75B-6A73-430B-9D35-5C6C92A1CCDE} = {95D437A3-4B19-4EEA-8C78-AC4FBF9A715D}
+		{2D71D3B2-3A1F-47DE-9D59-667DAB21B408} = {95D437A3-4B19-4EEA-8C78-AC4FBF9A715D}
+		{2F0CC9C9-55C6-481C-9EC6-D35C07830BC7} = {95D437A3-4B19-4EEA-8C78-AC4FBF9A715D}
+		{79D7E2A2-D858-46E0-A3D4-05C07ECFE283} = {729B1272-E868-4231-B340-C35E6F3A8AAB}
+	EndGlobalSection
+EndGlobal
