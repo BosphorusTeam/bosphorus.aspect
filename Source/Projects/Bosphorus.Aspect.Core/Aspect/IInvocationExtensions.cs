@@ -23,7 +23,7 @@ namespace Bosphorus.Aspect.Core.Aspect
             return inputValues;
         }
 
-        public static Tuple<string, object> GetOutput(this IInvocation extended)
+        public static IDictionary<string, object> GetOutput(this IInvocation extended)
         {
             ParameterInfo returnParameter = extended.Method.ReturnParameter;
             if (returnParameter.ParameterType == typeof(void))
@@ -31,7 +31,8 @@ namespace Bosphorus.Aspect.Core.Aspect
                 return null;
             }
 
-            Tuple<string, object> result = new Tuple<string, object>("return", extended.ReturnValue);
+            IDictionary<string, object> result = new Dictionary<string, object>();
+            result.Add("return", extended.ReturnValue);
             return result;
         }
     }

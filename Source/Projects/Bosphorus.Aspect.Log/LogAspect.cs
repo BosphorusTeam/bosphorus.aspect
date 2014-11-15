@@ -50,7 +50,7 @@ namespace Bosphorus.Aspect.Log
         {
             object output = invocation.GetOutput();
             string logData = output == null ? null : jsonSerializer.Serialize(output);
-            LogInfo(invocationContext, invocation, "Service output send", logData);
+            LogInfo(invocationContext, invocation, "Service output sent", logData);
         }
 
         private void LogException(InvocationContext invocationContext, IInvocation invocation, Exception exception)
