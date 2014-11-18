@@ -20,7 +20,7 @@ namespace Bosphorus.Aspect.Log
         public LogAspect(ILogger<ServiceLog> logger, JsonSerializer jsonSerializer, IContextProvider<InvocationContext> invocationContextProvider) 
             : base(invocationContextProvider)
         {
-            this.logger = logger.Threaded();
+            this.logger = logger;
             this.jsonSerializer = jsonSerializer;
         }
 

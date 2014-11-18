@@ -36,21 +36,21 @@
     <Reference Include="Bosphorus.Common.Core">
       <HintPath>..\..\packages\Bosphorus.Common.Core.1.0.0.15\lib\net45\Bosphorus.Common.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Bosphorus.Container.Castle, Version=1.1.0.27, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bosphorus.Container.Castle, Version=1.1.0.30, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Container.Castle.1.1.0.27\lib\net45\Bosphorus.Container.Castle.dll</HintPath>
+      <HintPath>..\..\packages\Bosphorus.Container.Castle.1.1.0.30\lib\net45\Bosphorus.Container.Castle.dll</HintPath>
     </Reference>
-    <Reference Include="Bosphorus.Library.Logging.Core, Version=1.1.0.9, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bosphorus.Library.Logging.Core, Version=1.1.0.11, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Library.Logging.Core.1.1.0.9\lib\net45\Bosphorus.Library.Logging.Core.dll</HintPath>
+      <HintPath>..\..\packages\Bosphorus.Library.Logging.Core.1.1.0.11\lib\net45\Bosphorus.Library.Logging.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Bosphorus.Logging.Model, Version=1.0.0.9, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bosphorus.Logging.Model, Version=1.0.0.11, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Library.Logging.Core.1.1.0.9\lib\net45\Bosphorus.Logging.Model.dll</HintPath>
+      <HintPath>..\..\packages\Bosphorus.Library.Logging.Core.1.1.0.11\lib\net45\Bosphorus.Logging.Model.dll</HintPath>
     </Reference>
-    <Reference Include="Bosphorus.Serialization.Core, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bosphorus.Serialization.Core, Version=1.1.0.6, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Serialization.Core.1.1.0.5\lib\net45\Bosphorus.Serialization.Core.dll</HintPath>
+      <HintPath>..\..\packages\Bosphorus.Serialization.Core.1.1.0.6\lib\net45\Bosphorus.Serialization.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>

@@ -32,8 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Bosphorus.BootStapper">
-      <HintPath>..\..\packages\Bosphorus.BootStapper.1.1.0.15\lib\net45\Bosphorus.BootStapper.dll</HintPath>
+    <Reference Include="Bosphorus.BootStapper, Version=1.1.0.16, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\packages\Bosphorus.BootStapper.1.1.0.16\lib\net45\Bosphorus.BootStapper.dll</HintPath>
     </Reference>
     <Reference Include="Bosphorus.Common.Clr">
       <HintPath>..\..\packages\Bosphorus.Common.Clr.1.0.0.15\lib\net45\Bosphorus.Common.Clr.dll</HintPath>
@@ -41,54 +42,15 @@
     <Reference Include="Bosphorus.Common.Core">
       <HintPath>..\..\packages\Bosphorus.Common.Core.1.0.0.15\lib\net45\Bosphorus.Common.Core.dll</HintPath>
     </Reference>
-    <Reference Include="Bosphorus.Container.Castle, Version=1.1.0.27, Culture=neutral, processorArchitecture=MSIL">
+    <Reference Include="Bosphorus.Container.Castle, Version=1.1.0.30, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Container.Castle.1.1.0.27\lib\net45\Bosphorus.Container.Castle.dll</HintPath>
-    </Reference>
-    <Reference Include="Bosphorus.Dao.Core, Version=2.1.0.27, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Dao.Core.2.1.0.27\lib\net45\Bosphorus.Dao.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Bosphorus.Dao.NHibernate, Version=2.1.0.27, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Dao.NHibernate.2.1.0.27\lib\net45\Bosphorus.Dao.NHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="Bosphorus.Library.Logging.Core, Version=1.1.0.9, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Library.Logging.Core.1.1.0.9\lib\net45\Bosphorus.Library.Logging.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Bosphorus.Logging.Database">
-      <HintPath>..\..\packages\Bosphorus.Logging.Database.1.0.0.9\lib\net45\Bosphorus.Logging.Database.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Bosphorus.Logging.Model">
-      <HintPath>..\..\packages\Bosphorus.Logging.Database.1.0.0.9\lib\net45\Bosphorus.Logging.Model.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="Bosphorus.Serialization.Core, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Serialization.Core.1.1.0.5\lib\net45\Bosphorus.Serialization.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Bosphorus.Serialization.Default, Version=1.1.0.5, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Bosphorus.Serialization.Default.1.1.0.5\lib\net45\Bosphorus.Serialization.Default.dll</HintPath>
+      <HintPath>..\..\packages\Bosphorus.Container.Castle.1.1.0.30\lib\net45\Bosphorus.Container.Castle.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Core">
       <HintPath>..\..\packages\Castle.Core.3.2.2\lib\net45\Castle.Core.dll</HintPath>
     </Reference>
     <Reference Include="Castle.Windsor">
       <HintPath>..\..\packages\Castle.Windsor.3.2.1\lib\net45\Castle.Windsor.dll</HintPath>
-    </Reference>
-    <Reference Include="FluentNHibernate">
-      <HintPath>..\..\packages\FluentNHibernate.1.4.0.0\lib\net35\FluentNHibernate.dll</HintPath>
-    </Reference>
-    <Reference Include="Iesi.Collections, Version=4.0.0.0, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\Iesi.Collections.4.0.1.4000\lib\net40\Iesi.Collections.dll</HintPath>
-    </Reference>
-    <Reference Include="NHibernate, Version=4.0.0.1001, Culture=neutral, PublicKeyToken=aa95f207798dfdb4, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\packages\NHibernate.4.0.0.0\lib\net40\NHibernate.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -101,13 +63,10 @@
   <ItemGroup>
     <Compile Include="Installer.cs" />
     <Compile Include="IService.cs" />
-    <Compile Include="PersistenceConfigurerProvider.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DefaultService.cs" />
-    <Compile Include="SchemaUpdater.cs" />
     <Compile Include="ServiceAspectApplier.cs" />
-    <Compile Include="SingletonSessionProvider.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

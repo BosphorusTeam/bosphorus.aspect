@@ -19,14 +19,7 @@ namespace Bosphorus.Aspect.Core.Demo
 
         static void Main(string[] args)
         {
-            try
-            {
-                ConsoleRunner.Run<Program>(Environment.Local, Perspective.Debug, new[] {"Onur", "Eker"});
-            }
-            catch (System.Exception exception)
-            {
-                Console.WriteLine(exception);
-            }
+            ConsoleRunner.Run<Program>(Environment.Local, Perspective.Debug, new[] {"Onur", "Eker"});
         }
 
         public void Run(string[] args)
