@@ -17,7 +17,7 @@ namespace Bosphorus.Aspect.Core.Demo
             container.Register(
                 Component
                     .For(typeof(ILogger<ServiceLog>))
-                    .ImplementedBy(typeof(MockLogger)),
+                    .ImplementedBy(typeof(DemoLogger)),
 
                 Component
                     .For<IService>()
