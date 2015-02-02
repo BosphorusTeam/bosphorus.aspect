@@ -1,6 +1,6 @@
 ﻿using System;
 using Bosphorus.Aspect.Log;
-using Bosphorus.Library.Logging.Core;
+using Bosphorus.Logging.Core;
 
 namespace Bosphorus.Aspect.Core.Demo
 {

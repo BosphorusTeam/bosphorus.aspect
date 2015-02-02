@@ -1,8 +1,9 @@
 ﻿using System;
+using Bosphorus.Logging.Model;
 
 namespace Bosphorus.Aspect.Log
 {
-    public class ServiceLog: Logging.Model.Log
+    public class ServiceLog: AbstractLog
     {
         public virtual Guid InvocationId { get; set; }
         public virtual string Class { get; set; }

@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using Bosphorus.Aspect.Core.Aspect;
 using Bosphorus.Common.Core.Context;
-using Bosphorus.Library.Logging.Core;
+using Bosphorus.Logging.Core;
 using Bosphorus.Logging.Model;
 using Bosphorus.Serialization.Core;
 using Castle.DynamicProxy;
@@ -32,7 +31,7 @@ namespace Bosphorus.Aspect.Log
                 invocation.Proceed();
                 LogOutput(invocationContext, invocation);
             }
-            catch (Exception exception)
+            catch (System.Exception exception)
             {
                 LogException(invocationContext, invocation, exception);
                 throw;
@@ -53,7 +52,7 @@ namespace Bosphorus.Aspect.Log
             LogInfo(invocationContext, invocation, "Service output sent", logData);
         }
 
-        private void LogException(InvocationContext invocationContext, IInvocation invocation, Exception exception)
+        private void LogException(InvocationContext invocationContext, IInvocation invocation, System.Exception exception)
         {
             string logData = exception.ToString();
             LogError(invocationContext, invocation, "Service execution failed", logData);
