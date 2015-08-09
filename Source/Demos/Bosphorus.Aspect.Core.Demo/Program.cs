@@ -1,6 +1,8 @@
-﻿using Bosphorus.BootStapper.Common;
+﻿using System;
+using Bosphorus.BootStapper.Common;
 using Bosphorus.BootStapper.Program;
 using Bosphorus.BootStapper.Runner;
+using Bosphorus.BootStapper.Runner.Console;
 using Environment = Bosphorus.BootStapper.Common.Environment;
 
 namespace Bosphorus.Aspect.Core.Demo
