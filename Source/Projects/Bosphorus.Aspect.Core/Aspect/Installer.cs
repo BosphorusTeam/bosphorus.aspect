@@ -1,21 +1,28 @@
 ﻿using System;
-using System.CodeDom.Compiler;
-using Bosphorus.Aspect.Core.Aspect;
 using Bosphorus.Aspect.Core.Aspect.Applier;
 using Bosphorus.Container.Castle.Registration;
+using Bosphorus.Container.Castle.Registration.Installer;
 using Castle.Core;
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
+using Castle.MicroKernel.Context;
 using Castle.MicroKernel.Handlers;
-using Castle.MicroKernel.Proxy;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
-namespace Bosphorus.Aspect.Core
+namespace Bosphorus.Aspect.Core.Aspect
 {
-    public class Installer: AbstractWindsorInstaller
+    public class Installer: AbstractWindsorInstaller, IInfrastructureInstaller
     {
+        private class GenericImplementationMatchingStrategy : IGenericImplementationMatchingStrategy
+        {
+            public Type[] GetGenericArguments(ComponentModel model, CreationContext context)
+            {
+                return new[] { context.RequestedType };
+            }
+        }
+
         private readonly Property genericImplementationMatchingStrategyProperty;
 
         public Installer()
@@ -28,28 +35,16 @@ namespace Bosphorus.Aspect.Core
         {
             container.Register(
                 allLoadedTypes
-                    .BasedOn(typeof(IServiceAspect<>))
+                    .BasedOn(typeof(IAspect<>))
                     .WithService
                     .FromInterface()
                     .Configure(ConfigureAspect),
 
                 allLoadedTypes
-                    .BasedOn<IServiceAspectApplier>()
+                    .BasedOn<IAspectApplier>()
                     .WithService
-                    .FromInterface(),
-
-                Component
-                    .For<IServiceAspectApplier>()
-                    .ImplementedBy<CompositeServiceAspectApplier>()
-                    .IsDefault(),
-
-                Component
-                    .For<IModelInterceptorsSelector>()
-                    .ImplementedBy<DefaultModelInterceptorsSelector>()
+                    .FromInterface()
             );
-
-            IModelInterceptorsSelector modelInterceptorsSelector = container.Resolve<IModelInterceptorsSelector>();
-            container.Kernel.ProxyFactory.AddInterceptorSelector(modelInterceptorsSelector);
         }
 
         private void ConfigureAspect(ComponentRegistration componentRegistration)

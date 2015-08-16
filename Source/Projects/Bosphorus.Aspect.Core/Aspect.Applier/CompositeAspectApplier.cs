@@ -4,11 +4,11 @@ using Castle.Core;
 
 namespace Bosphorus.Aspect.Core.Aspect.Applier
 {
-    internal class CompositeServiceAspectApplier: IServiceAspectApplier
+    internal class CompositeAspectApplier: IAspectApplier
     {
-        private readonly IList<IServiceAspectApplier> serviceAspectApplierList;
+        private readonly IList<IAspectApplier> serviceAspectApplierList;
 
-        public CompositeServiceAspectApplier(IList<IServiceAspectApplier> serviceAspectApplierList)
+        public CompositeAspectApplier(IList<IAspectApplier> serviceAspectApplierList)
         {
             this.serviceAspectApplierList = serviceAspectApplierList;
         }
@@ -19,16 +19,16 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier
             return result;
         }
 
-        public void Apply(ComponentModel model, ServiceAspectRegistry serviceAspectRegistry)
+        public void Apply(ComponentModel model, AspectRegistry aspectRegistry)
         {
-            foreach (IServiceAspectApplier serviceAspectApplier in serviceAspectApplierList)
+            foreach (IAspectApplier serviceAspectApplier in serviceAspectApplierList)
             {
                 if (!serviceAspectApplier.IsApplicable(model))
                 {
                     continue;
                 }
 
-                serviceAspectApplier.Apply(model, serviceAspectRegistry);
+                serviceAspectApplier.Apply(model, aspectRegistry);
             }
         }
     }

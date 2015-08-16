@@ -1,5 +1,4 @@
-﻿using System;
-using Bosphorus.Aspect.Core.Aspect;
+﻿using Bosphorus.Aspect.Core.Aspect;
 using Castle.DynamicProxy;
 
 namespace Bosphorus.Aspect.Default

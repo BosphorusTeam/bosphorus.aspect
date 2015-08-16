@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace Bosphorus.Aspect.Core.Aspect.Applier
 {
-    public class ServiceAspectRegistry
+    public class AspectRegistry
     {
         private readonly IList<Type> aspects;
 
-        public ServiceAspectRegistry()
+        public AspectRegistry()
         {
             aspects = new List<Type>();
         }
@@ -17,10 +17,6 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier
             aspects.Add(type);
         }
 
-        public IEnumerable<Type> Aspects
-        {
-            get { return aspects; }
-        }
-
+        public IEnumerable<Type> Aspects => aspects;
     }
 }

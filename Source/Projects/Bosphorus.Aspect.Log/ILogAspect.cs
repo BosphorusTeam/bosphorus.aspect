@@ -2,7 +2,7 @@
 
 namespace Bosphorus.Aspect.Log
 {
-    public interface ILogAspect<TService> : IServiceAspect<TService>
+    public interface ILogAspect<TService> : IAspect<TService>
     {
     }
 }

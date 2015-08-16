@@ -1,9 +1,12 @@
 ﻿using System.Collections.Generic;
 using Bosphorus.Aspect.Core.Aspect;
+using Bosphorus.Common.Core.Application;
 using Bosphorus.Common.Core.Context;
 using Bosphorus.Logging.Core;
+using Bosphorus.Logging.Core.Logger;
 using Bosphorus.Logging.Model;
 using Bosphorus.Serialization.Core;
+using Bosphorus.Serialization.Core.Serializer.Json;
 using Castle.DynamicProxy;
 
 namespace Bosphorus.Aspect.Log
@@ -11,19 +14,19 @@ namespace Bosphorus.Aspect.Log
     //http://james.newtonking.com/archive/2009/07/10/ado-net-entity-framework-support-accidently-added-to-json-net
     //http://james.newtonking.com/json
     //http://stackoverflow.com/questions/17986193/json-mapping-and-serializing-in-c-sharp
-    public class LogAspect<TService> : AbstractServiceAspect<TService>, ILogAspect<TService>
+    public class LogAspect<TService> : AbstractAspect<TService>, ILogAspect<TService>
     {
         private readonly ILogger<ServiceLog> logger;
-        private readonly JsonSerializer jsonSerializer;
+        private readonly GenericJsonSerializer jsonSerializer;
 
-        public LogAspect(ILogger<ServiceLog> logger, JsonSerializer jsonSerializer, IContextProvider<InvocationContext> invocationContextProvider) 
-            : base(invocationContextProvider)
+        public LogAspect(GenericContextProvider genericContextProvider, ILogger<ServiceLog> logger, GenericJsonSerializer jsonSerializer) 
+            : base(genericContextProvider)
         {
             this.logger = logger;
             this.jsonSerializer = jsonSerializer;
         }
 
-        protected override void Intercept(InvocationContext invocationContext, IInvocation invocation)
+        protected override void Intercept(ApplicationContext applicationContext, CallContext callContext, InvocationContext invocationContext, IInvocation invocation)
         {
             try
             {

@@ -2,7 +2,7 @@
 
 namespace Bosphorus.Aspect.Default
 {
-    public interface IDefaultAspect<TService> : IServiceAspect<TService>
+    public interface IDefaultAspect<TService> : IAspect<TService>
     {
     }
 }

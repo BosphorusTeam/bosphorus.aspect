@@ -2,10 +2,10 @@
 
 namespace Bosphorus.Aspect.Core.Aspect.Applier
 {
-    public interface IServiceAspectApplier
+    public interface IAspectApplier
     {
         bool IsApplicable(ComponentModel model);
 
-        void Apply(ComponentModel model, ServiceAspectRegistry serviceAspectRegistry);
+        void Apply(ComponentModel model, AspectRegistry aspectRegistry);
     }
 }

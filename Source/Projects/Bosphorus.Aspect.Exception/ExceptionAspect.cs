@@ -1,17 +1,18 @@
 ﻿using Bosphorus.Aspect.Core.Aspect;
+using Bosphorus.Common.Core.Application;
 using Bosphorus.Common.Core.Context;
 using Castle.DynamicProxy;
 
 namespace Bosphorus.Aspect.Exception
 {
-    public class ExceptionAspect<TService>: AbstractServiceAspect<TService>, IExceptionAspect<TService>
+    public class ExceptionAspect<TService>: AbstractAspect<TService>, IExceptionAspect<TService>
     {
-        public ExceptionAspect(IContextProvider<InvocationContext> invocationContextProvider) 
-            : base(invocationContextProvider)
+        public ExceptionAspect(GenericContextProvider genericContextProvider) 
+            : base(genericContextProvider)
         {
         }
 
-        protected override void Intercept(InvocationContext invocationContext, IInvocation invocation)
+        protected override void Intercept(ApplicationContext applicationContext, CallContext callContext, InvocationContext invocationContext, IInvocation invocation)
         {
             try
             {
@@ -19,7 +20,7 @@ namespace Bosphorus.Aspect.Exception
             }
             catch (System.Exception exception)
             {
-                throw new GenericServiceExecutionException<TService>(invocationContext, invocation, exception);
+                throw new GenericServiceExecutionException<TService>(applicationContext, invocationContext, invocation, exception);
             }
         }
     }

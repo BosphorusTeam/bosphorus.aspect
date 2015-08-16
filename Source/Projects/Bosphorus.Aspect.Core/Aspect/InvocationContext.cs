@@ -12,10 +12,7 @@ namespace Bosphorus.Aspect.Core.Aspect
             id = Guid.NewGuid();
         }
 
-        public Guid? Id 
-        {
-            get { return id; }
-        }
+        public Guid? Id => id;
 
         public object Get(string key)
         {
