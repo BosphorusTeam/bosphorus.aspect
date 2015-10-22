@@ -1,30 +1,31 @@
 ﻿using Bosphorus.Aspect.Core.Aspect;
+using Bosphorus.Common.Core.Context;
+using Bosphorus.Common.Core.Context.Invocation;
 using Castle.DynamicProxy;
 
 namespace Bosphorus.Aspect.Default
 {
     public class DefaultAspect<TService> : IDefaultAspect<TService>
     {
-        private readonly InvocationContextProvider invocationContextProvider;
+        private readonly ContextInvoker<InvocationContext> contextInvoker;
 
-        public DefaultAspect(InvocationContextProvider invocationContextProvider)
+        public DefaultAspect(ContextInvoker<InvocationContext> contextInvoker)
         {
-            this.invocationContextProvider = invocationContextProvider;
+            this.contextInvoker = contextInvoker;
         }
 
         public void Intercept(IInvocation invocation)
         {
             InvocationContext invocationContext = new InvocationContext();
-            invocationContextProvider.Register(invocationContext);
+            contextInvoker.InvokeStarted(invocationContext);
             try
             {
                 invocation.Proceed();
             }
             finally
             {
-                invocationContextProvider.Unregister(invocationContext);    
+                contextInvoker.InvokeFinished(invocationContext);
             }
-            
         }
     }
 }

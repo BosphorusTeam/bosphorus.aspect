@@ -47,17 +47,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Aspect.Applier\CompositeAspectApplier.cs" />
+    <Compile Include="Aspect.Applier\CoC\AspectAcceptance.cs" />
+    <Compile Include="Aspect.Applier\CoC\AspectConvention.cs" />
+    <Compile Include="Aspect.Applier\DefaultModelInterceptorsSelector.cs" />
     <Compile Include="Aspect.Applier\Installer.cs" />
     <Compile Include="Aspect\AbstractAspect.cs" />
     <Compile Include="Aspect\IInvocationExtensions.cs" />
     <Compile Include="Aspect\Installer.cs" />
     <Compile Include="Aspect\IAspect.cs" />
-    <Compile Include="Aspect.Applier\IAspectApplier.cs" />
-    <Compile Include="Aspect.Applier\DefaultModelInterceptorsSelector.cs" />
-    <Compile Include="Aspect\InvocationContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Aspect.Applier\AspectRegistry.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

@@ -45,7 +45,6 @@
   <ItemGroup>
     <Compile Include="DefaultAspect.cs" />
     <Compile Include="IDefaultAspect.cs" />
-    <Compile Include="InvocationContextProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

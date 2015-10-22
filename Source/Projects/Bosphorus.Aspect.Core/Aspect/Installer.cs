@@ -1,6 +1,4 @@
 ﻿using System;
-using Bosphorus.Aspect.Core.Aspect.Applier;
-using Bosphorus.Container.Castle.Registration;
 using Bosphorus.Container.Castle.Registration.Installer;
 using Castle.Core;
 using Castle.Core.Internal;
@@ -38,12 +36,7 @@ namespace Bosphorus.Aspect.Core.Aspect
                     .BasedOn(typeof(IAspect<>))
                     .WithService
                     .FromInterface()
-                    .Configure(ConfigureAspect),
-
-                allLoadedTypes
-                    .BasedOn<IAspectApplier>()
-                    .WithService
-                    .FromInterface()
+                    .Configure(ConfigureAspect)
             );
         }
 

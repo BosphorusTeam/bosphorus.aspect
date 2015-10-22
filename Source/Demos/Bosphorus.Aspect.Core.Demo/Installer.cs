@@ -1,8 +1,4 @@
-﻿using Bosphorus.Aspect.Core.Aspect;
-using Bosphorus.Aspect.Default;
-using Bosphorus.Common.Core.Context;
-using Bosphorus.Configuration.Core.Parameter;
-using Bosphorus.Container.Castle.Registration;
+﻿using Bosphorus.Configuration.Core.Parameter;
 using Bosphorus.Container.Castle.Registration.Installer;
 using Bosphorus.Logging.Console.Logger;
 using Bosphorus.Logging.Core.Logger;
@@ -33,14 +29,7 @@ namespace Bosphorus.Aspect.Core.Demo
 
                 Component
                     .For(typeof(IJsonSerializer<>))
-                    .ImplementedBy(typeof(DefaultJsonSerializer<>)),
-
-                Component
-                    .For<IContextProvider<InvocationContext>>()
-                    .Forward<InvocationContextProvider>()
-                    .ImplementedBy<InvocationContextProvider>()
-                    .LifeStyle
-                    .PerThread
+                    .ImplementedBy(typeof(DefaultJsonSerializer<>))
             );
         }
     }

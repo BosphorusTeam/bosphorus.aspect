@@ -1,5 +1,8 @@
 ﻿using Bosphorus.Common.Core.Application;
 using Bosphorus.Common.Core.Context;
+using Bosphorus.Common.Core.Context.Application;
+using Bosphorus.Common.Core.Context.Call;
+using Bosphorus.Common.Core.Context.Invocation;
 using Castle.DynamicProxy;
 
 namespace Bosphorus.Aspect.Core.Aspect

@@ -13,11 +13,6 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier
         {
             container.Register(
                 Component
-                    .For<IAspectApplier>()
-                    .ImplementedBy<CompositeAspectApplier>()
-                    .IsDefault(),
-
-                Component
                     .For<IModelInterceptorsSelector>()
                     .ImplementedBy<DefaultModelInterceptorsSelector>()
             );

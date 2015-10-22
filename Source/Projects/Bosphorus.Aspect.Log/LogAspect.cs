@@ -2,6 +2,9 @@
 using Bosphorus.Aspect.Core.Aspect;
 using Bosphorus.Common.Core.Application;
 using Bosphorus.Common.Core.Context;
+using Bosphorus.Common.Core.Context.Application;
+using Bosphorus.Common.Core.Context.Call;
+using Bosphorus.Common.Core.Context.Invocation;
 using Bosphorus.Logging.Core;
 using Bosphorus.Logging.Core.Logger;
 using Bosphorus.Logging.Model;

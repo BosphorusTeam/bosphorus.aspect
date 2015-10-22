@@ -1,4 +1,7 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
+using Bosphorus.Aspect.Core.Aspect.Applier.CoC;
+using Bosphorus.Common.Core.CoC.Convention;
 using Castle.Core;
 using Castle.MicroKernel.Proxy;
 
@@ -6,11 +9,11 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier
 {
     internal class DefaultModelInterceptorsSelector : IModelInterceptorsSelector
     {
-        private readonly IAspectApplier aspectApplier;
+        private readonly IConventionApplier<AspectAcceptance> conventionApplier;
 
-        public DefaultModelInterceptorsSelector(IAspectApplier aspectApplier)
+        public DefaultModelInterceptorsSelector(IConventionApplier<AspectAcceptance> conventionApplier)
         {
-            this.aspectApplier = aspectApplier;
+            this.conventionApplier = conventionApplier;
         }
 
         public bool HasInterceptors(ComponentModel model)
@@ -21,16 +24,18 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier
                 return false;
             }
 
-            bool isApplicable = aspectApplier.IsApplicable(model);
-            return isApplicable;
+            AspectAcceptance aspectAcceptance = new AspectAcceptance(model);
+            bool applicable = conventionApplier.IsApplicable<AspectConvention>(aspectAcceptance);
+            return applicable;
         }
 
         public InterceptorReference[] SelectInterceptors(ComponentModel model, InterceptorReference[] interceptors)
         {
-            AspectRegistry aspectRegistry = new AspectRegistry();
-            aspectApplier.Apply(model, aspectRegistry);
+            AspectAcceptance aspectAcceptance = new AspectAcceptance(model);
+            AspectConvention aspectConvention = new AspectConvention();
+            conventionApplier.Apply(aspectAcceptance, aspectConvention);
 
-            InterceptorReference[] interceptorReferences = aspectRegistry.Aspects
+            InterceptorReference[] interceptorReferences = aspectConvention.Aspects
                 .Select(serviceAspect => InterceptorReference.ForType(serviceAspect))
                 .ToArray();
 
