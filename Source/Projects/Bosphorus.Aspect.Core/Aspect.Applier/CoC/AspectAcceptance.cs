@@ -6,7 +6,7 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier.CoC
 {
     public class AspectAcceptance
     {
-        public ComponentModel ComponentModel { get; }
+        public ComponentModel ComponentModel { get; private set; }
 
         public AspectAcceptance(ComponentModel model)
         {
