@@ -1,14 +1,10 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using Bosphorus.Aspect.Core.Aspect;
-using Bosphorus.Common.Core.Application;
-using Bosphorus.Common.Core.Context;
-using Bosphorus.Common.Core.Context.Application;
-using Bosphorus.Common.Core.Context.Call;
-using Bosphorus.Common.Core.Context.Invocation;
-using Bosphorus.Logging.Core;
+using Bosphorus.Common.Api.Context.Provider;
+using Bosphorus.Common.Application.Scope.Invocation;
 using Bosphorus.Logging.Core.Logger;
 using Bosphorus.Logging.Model;
-using Bosphorus.Serialization.Core;
 using Bosphorus.Serialization.Core.Serializer.Json;
 using Castle.DynamicProxy;
 
@@ -17,27 +13,29 @@ namespace Bosphorus.Aspect.Log
     //http://james.newtonking.com/archive/2009/07/10/ado-net-entity-framework-support-accidently-added-to-json-net
     //http://james.newtonking.com/json
     //http://stackoverflow.com/questions/17986193/json-mapping-and-serializing-in-c-sharp
-    public class LogAspect<TService> : AbstractAspect<TService>, ILogAspect<TService>
+    public class LogAspect<TService> : ILogAspect<TService>
     {
         private readonly ILogger<ServiceLog> logger;
+        private readonly GenericContextProvider genericContextProvider;
         private readonly GenericJsonSerializer jsonSerializer;
 
-        public LogAspect(GenericContextProvider genericContextProvider, ILogger<ServiceLog> logger, GenericJsonSerializer jsonSerializer) 
-            : base(genericContextProvider)
+        public LogAspect(ILogger<ServiceLog> logger, GenericContextProvider genericContextProvider, GenericJsonSerializer jsonSerializer) 
         {
             this.logger = logger;
+            this.genericContextProvider = genericContextProvider;
             this.jsonSerializer = jsonSerializer;
         }
 
-        protected override void Intercept(ApplicationContext applicationContext, CallContext callContext, InvocationContext invocationContext, IInvocation invocation)
+        public void Intercept(IInvocation invocation)
         {
+            InvocationContext invocationContext = genericContextProvider.Get<InvocationContext>();
             try
             {
                 LogInput(invocationContext, invocation);
                 invocation.Proceed();
                 LogOutput(invocationContext, invocation);
             }
-            catch (System.Exception exception)
+            catch (Exception exception)
             {
                 LogException(invocationContext, invocation, exception);
                 throw;
@@ -58,7 +56,7 @@ namespace Bosphorus.Aspect.Log
             LogInfo(invocationContext, invocation, "Service output sent", logData);
         }
 
-        private void LogException(InvocationContext invocationContext, IInvocation invocation, System.Exception exception)
+        private void LogException(InvocationContext invocationContext, IInvocation invocation, Exception exception)
         {
             string logData = exception.ToString();
             LogError(invocationContext, invocation, "Service execution failed", logData);

@@ -1,5 +1,6 @@
 ﻿using System;
-using Bosphorus.Container.Castle.Registration.Installer;
+using Bosphorus.Common.Api.Container;
+using Bosphorus.Common.Api.Symbol;
 using Castle.Core;
 using Castle.Core.Internal;
 using Castle.DynamicProxy;
@@ -11,8 +12,10 @@ using Castle.Windsor;
 
 namespace Bosphorus.Aspect.Core.Aspect
 {
-    public class Installer: AbstractWindsorInstaller, IInfrastructureInstaller
+    public class Installer: IBosphorusInstaller
     {
+        private readonly ITypeProvider typeProvider;
+
         private class GenericImplementationMatchingStrategy : IGenericImplementationMatchingStrategy
         {
             public Type[] GetGenericArguments(ComponentModel model, CreationContext context)
@@ -23,27 +26,28 @@ namespace Bosphorus.Aspect.Core.Aspect
 
         private readonly Property genericImplementationMatchingStrategyProperty;
 
-        public Installer()
+        public Installer(ITypeProvider typeProvider)
         {
+            this.typeProvider = typeProvider;
             IGenericImplementationMatchingStrategy genericImplementationMatchingStrategy = new GenericImplementationMatchingStrategy();
             genericImplementationMatchingStrategyProperty = Property.ForKey(Constants.GenericImplementationMatchingStrategy).Eq(genericImplementationMatchingStrategy);
-        }
-
-        protected override void Install(IWindsorContainer container, IConfigurationStore store, FromTypesDescriptor allLoadedTypes)
-        {
-            container.Register(
-                allLoadedTypes
-                    .BasedOn(typeof(IAspect<>))
-                    .WithService
-                    .FromInterface()
-                    .Configure(ConfigureAspect)
-            );
         }
 
         private void ConfigureAspect(ComponentRegistration componentRegistration)
         {
             componentRegistration.Forward<IInterceptor>();
             componentRegistration.ExtendedProperties(genericImplementationMatchingStrategyProperty);
+        }
+
+        public void Install(IWindsorContainer container, IConfigurationStore store)
+        {
+            container.Register(
+                Classes.From(typeProvider.LoadedTypes)
+                    .BasedOn(typeof(IAspect<>))
+                    .WithService
+                    .FromInterface()
+                    .Configure(ConfigureAspect)
+            );
         }
     }
 

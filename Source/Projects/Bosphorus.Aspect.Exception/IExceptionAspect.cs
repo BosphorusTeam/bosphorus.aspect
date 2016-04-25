@@ -1,5 +1,4 @@
-﻿using Bosphorus.Aspect.Core;
-using Bosphorus.Aspect.Core.Aspect;
+﻿using Bosphorus.Aspect.Core.Aspect;
 
 namespace Bosphorus.Aspect.Exception
 {

@@ -2,9 +2,9 @@
 using Bosphorus.Aspect.Default;
 using Bosphorus.Aspect.Exception;
 using Bosphorus.Aspect.Log;
-using Bosphorus.BootStapper.Runner.Console;
-using Bosphorus.Common.Core.CoC.Acceptance;
-using Bosphorus.Common.Core.CoC.Convention;
+using Bosphorus.Assemble.BootStrapper.Runner.Console;
+using Bosphorus.Common.Api.CoC.Acceptance;
+using Bosphorus.Common.Api.CoC.Convention;
 
 namespace Bosphorus.Aspect.Core.Demo
 {

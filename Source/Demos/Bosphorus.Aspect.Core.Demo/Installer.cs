@@ -1,18 +1,16 @@
-﻿using Bosphorus.Configuration.Core.Parameter;
-using Bosphorus.Container.Castle.Registration.Installer;
-using Bosphorus.Logging.Console.Logger;
+﻿using Bosphorus.Aspect.Log;
+using Bosphorus.Common.Api.CoC.Convention;
 using Bosphorus.Logging.Core.Logger;
 using Bosphorus.Serialization.Core.Serializer.Json;
-using Bosphorus.Serialization.Default.Serializer.Json;
 using Castle.MicroKernel.Registration;
 using Castle.MicroKernel.SubSystems.Configuration;
 using Castle.Windsor;
 
 namespace Bosphorus.Aspect.Core.Demo
 {
-    public class Installer: AbstractWindsorInstaller, IInfrastructureInstaller
+    public class Installer: IDemoInstaller
     {
-        protected override void Install(IWindsorContainer container, IConfigurationStore store, FromTypesDescriptor allLoadedTypes)
+        public void Install(IWindsorContainer container, IConfigurationStore store)
         {
             container.Register(
                 Component
@@ -20,16 +18,12 @@ namespace Bosphorus.Aspect.Core.Demo
                     .ImplementedBy<DefaultService>(),
 
                 Component
-                    .For<IParameterProvider>()
-                    .ImplementedBy<ParameterProvider>(),
-
-                Component
-                    .For(typeof(ILogger<>))
-                    .ImplementedBy(typeof(ConsoleLogger<>)),
+                    .For<ILogger<ServiceLog>>()
+                    .ImplementedBy<DemoLogger>(),
 
                 Component
                     .For(typeof(IJsonSerializer<>))
-                    .ImplementedBy(typeof(DefaultJsonSerializer<>))
+                    .ImplementedBy(typeof(DemoJsonSerializer<>))
             );
         }
     }

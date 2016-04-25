@@ -1,8 +1,5 @@
-﻿using System;
-using Bosphorus.BootStapper.Runner;
-using Bosphorus.BootStapper.Runner.Console;
-using Bosphorus.Common.Core.Application;
-using Environment = Bosphorus.Common.Core.Application.Environment;
+﻿using Bosphorus.Assemble.BootStrapper.Runner.Console;
+using Bosphorus.Common.Application;
 
 namespace Bosphorus.Aspect.Core.Demo
 {
@@ -17,7 +14,7 @@ namespace Bosphorus.Aspect.Core.Demo
 
         static void Main(string[] args)
         {
-            ConsoleRunner.Run<Program>(Environment.Local, Perspective.Debug, "Onur", "Eker");
+            ConsoleRunner.Run<Program>(Environment.Local, Perspective.Debug, args, typeof(IDemoInstaller));
         }
 
         public void Run(string[] args)

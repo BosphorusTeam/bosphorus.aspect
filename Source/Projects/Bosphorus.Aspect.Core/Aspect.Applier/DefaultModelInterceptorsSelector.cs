@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Bosphorus.Aspect.Core.Aspect.Applier.CoC;
-using Bosphorus.Common.Core.CoC.Convention;
+using Bosphorus.Common.Api.CoC.Convention;
 using Castle.Core;
 using Castle.MicroKernel.Proxy;
 
@@ -36,7 +36,7 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier
             conventionApplier.Apply(aspectAcceptance, aspectConvention);
 
             InterceptorReference[] interceptorReferences = aspectConvention.Aspects
-                .Select(serviceAspect => InterceptorReference.ForType(serviceAspect))
+                .Select(InterceptorReference.ForType)
                 .ToArray();
 
             return interceptorReferences;
