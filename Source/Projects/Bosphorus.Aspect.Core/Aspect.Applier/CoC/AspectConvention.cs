@@ -5,7 +5,7 @@ namespace Bosphorus.Aspect.Core.Aspect.Applier.CoC
 {
     public class AspectConvention
     {
-        public IList<Type> Aspects { get; private set; }
+        public IList<Type> Aspects { get; }
 
         public AspectConvention()
         {
