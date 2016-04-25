@@ -1,6 +1,6 @@
 version: 2.0.1.{build}
 install:
-- set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+- cmd: set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
 skip_tags: true
 assembly_info:
   patch: true
