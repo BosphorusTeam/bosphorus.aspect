@@ -9,8 +9,6 @@ assembly_info:
 nuget:
   account_feed: true
   project_feed: true
-configuration:
-  - Release  
 before_build:
 - cd Source
 - nuget restore
@@ -20,7 +18,7 @@ build:
   publish_nuget_symbols: true
   verbosity: minimal
 after_build:
-- cmd: gitlink .
+- cmd: gitlink . -c Debug
 deploy:
 - provider: NuGet
   server: https://www.myget.org/F/bosphorus/api/v2/package
