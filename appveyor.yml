@@ -9,6 +9,8 @@ assembly_info:
 nuget:
   account_feed: true
   project_feed: true
+configuration:
+  - Release  
 before_build:
 - cd Source
 - nuget restore
@@ -17,6 +19,8 @@ build:
   publish_nuget: true
   publish_nuget_symbols: true
   verbosity: minimal
+after_build:
+- cmd: gitlink .
 deploy:
 - provider: NuGet
   server: https://www.myget.org/F/bosphorus/api/v2/package
@@ -26,3 +30,4 @@ deploy:
   artifact: /.*\.nupkg/  
 install:
 - cmd: set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
+- cinst gitlink -y
