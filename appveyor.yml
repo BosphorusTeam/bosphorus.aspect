@@ -24,7 +24,7 @@ deploy:
   server: https://www.myget.org/F/bosphorus/api/v2/package
   api_key:
     secure: jsZqwydLknpfHT2aAzpNzcsc/Hv+/uzDa7fh2euv3Qv6P30NvClXkw60qhp9X7NQ
-  symbol_server: https://www.myget.org/F/bosphorus/api/v2/package
+  symbol_server: https://www.myget.org/F/bosphorus/symbols/api/v2/package
   artifact: /.*\.nupkg/  
 install:
 - cmd: set PATH=C:\Program Files (x86)\MSBuild\14.0\Bin;%PATH%
